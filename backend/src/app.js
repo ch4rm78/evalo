@@ -1,6 +1,7 @@
 import express from "express";
 import { PORT, NODE_ENV } from "./config/env.js";
 import path from "path";
+import { connectDB } from "./config/db.js";
 
 const app = express();
 
@@ -15,11 +16,20 @@ app.get("/books", async (req, res) => {
 if (NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "../frontend/dist")));
 
-  app.get("*", (req, res) => {
+  app.get("/{*any}", (req, res) => {
     res.sendFile(path.join(__dirname, "../frontend/dist/index.html"));
   });
 }
 
-app.listen(PORT, () => {
-  console.log(`Listening on port ${PORT}`);
-});
+const startServer = async () => {
+  try {
+    await connectDB();
+    app.listen(PORT, () => {
+      console.log(`Listening on port ${PORT}`);
+    });
+  } catch (error) {
+    console.error("failed to start server", error);
+  }
+};
+
+startServer();
