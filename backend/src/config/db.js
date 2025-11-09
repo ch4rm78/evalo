@@ -1,6 +1,10 @@
 import mongoose from "mongoose";
 import { DB_URL } from "./env.js";
 
+if (!DB_URL) {
+  throw new Error("Please provide a valid database URL");
+}
+
 export const connectDB = async () => {
   try {
     const conn = await mongoose.connect(DB_URL);
