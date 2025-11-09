@@ -2,8 +2,19 @@ import express from "express";
 import { PORT, NODE_ENV } from "./config/env.js";
 import path from "path";
 import { connectDB } from "./config/db.js";
+import cors from "cors";
+import { CLIENT_URL } from "./config/env.js";
+import { serve } from "inngest/express";
+import { inngest, functions } from "./config/inngest.js";
 
 const app = express();
+
+// middlewares
+app.use(express.json());
+// credentials:true ==> server allows a browser to include cookies on request
+app.use(cors({ origin: CLIENT_URL, credentials: true }));
+
+app.use("/api/inngest", serve({ client: inngest, functions }));
 
 // in this case the "__dirname" is the current directory...so the backend folder
 const __dirname = path.resolve();
