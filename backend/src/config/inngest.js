@@ -1,7 +1,7 @@
 import { Inngest } from "inngest";
 import { connectDB } from "./db.js";
 import User from "../models/User.js";
-
+import { upsertStreamUser, deleteStreamUser } from "./stream.js";
 export const inngest = new Inngest({ id: "Evalo" });
 
 const syncUser = inngest.createFunction(
@@ -25,15 +25,12 @@ const syncUser = inngest.createFunction(
 
     await User.create(newUser);
     console.log("New User Created Succesfully", newUser);
-    // try {
-    //   if (!newUser) {
-    //     throw new Error("Invalid user data");
-    //   }
-    //   const user = await User.create(newUser);
-    //   console.log("New User Created Succesfully", user);
-    // } catch (error) {
-    //   console.error("Failed to sync user", error);
-    // }
+
+    await upsertStreamUser({
+      id: newUser.clerkId.toString(),
+      name: newUser.name,
+      image: newUser.profileImage,
+    });
   }
 );
 
@@ -46,15 +43,8 @@ const deleteUser = inngest.createFunction(
 
     await User.deleteOne({ clerkId: id });
     console.log("User Deleted Succesfully", id);
-    // try {
-    //   if (!newUser) {
-    //     throw new Error("Invalid user data");
-    //   }
-    //   const user = await User.create(newUser);
-    //   console.log("New User Created Succesfully", user);
-    // } catch (error) {
-    //   console.error("Failed to sync user", error);
-    // }
+
+    await deleteStreamUser(id.toString());
   }
 );
 
