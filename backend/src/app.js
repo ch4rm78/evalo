@@ -7,6 +7,8 @@ import { CLIENT_URL } from "./config/env.js";
 import { serve } from "inngest/express";
 import { inngest, functions } from "./config/inngest.js";
 import { clerkMiddleware } from "@clerk/express";
+import { protectRoute } from "./middleware/protectRoute.js";
+import chatRoute from "./routes/chatRoute.js";
 const app = express();
 
 // middlewares
@@ -19,6 +21,7 @@ app.use(clerkMiddleware()); // adds "auth" field to request objects
 
 // api routes
 app.use("/api/inngest", serve({ client: inngest, functions }));
+app.use("/api/chat", chatRoute);
 
 // in this case the "__dirname" is the current directory...so the backend folder
 const __dirname = path.resolve();
