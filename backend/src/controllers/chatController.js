@@ -1,8 +1,10 @@
-import { streamClient } from "../config/stream.js";
+import { chatClient } from "../config/stream.js";
 
 export const getStreamToken = async (req, res) => {
   try {
-    const token = streamClient.createToken(req.user.clerkId);
+    // use clerk ID for stream not mongodb id
+    // it should match the id in the stream dashboard
+    const token = chatClient.createToken(req.user.clerkId);
     return res.status(200).json({
       token,
       userId: req.user.clerkId,

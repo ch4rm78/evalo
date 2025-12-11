@@ -9,6 +9,7 @@ const syncUser = inngest.createFunction(
   { event: "clerk/user.created" },
   async ({ event }) => {
     await connectDB();
+
     const { id, email_addresses, first_name, last_name, image_url } =
       event.data;
 
@@ -31,6 +32,8 @@ const syncUser = inngest.createFunction(
       name: newUser.name,
       image: newUser.profileImage,
     });
+
+    // challenge: send a welcome email to user
   }
 );
 
