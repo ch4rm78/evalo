@@ -6,14 +6,13 @@ if (!STREAM_API_KEY || !STREAM_API_SECRET) {
   console.error("Stream API key or API Secret is missing");
 }
 
-// will be used for chat features
+// Initialize chat client (using singleton pattern as per docs)
 export const chatClient = StreamChat.getInstance(
   STREAM_API_KEY,
   STREAM_API_SECRET
 );
 
-// will be used for video calls
-export const streamClient = StreamClient(STREAM_API_KEY, STREAM_API_SECRET);
+export const streamClient = new StreamClient(STREAM_API_KEY, STREAM_API_SECRET);
 
 export const upsertStreamUser = async (userData) => {
   try {
