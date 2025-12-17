@@ -26,10 +26,7 @@ function HomePage() {
             </div>
 
             <div className="flex flex-col">
-              <span
-                className="font-black text-xl bg-gradient-to-r from-primary via-secondary to-accent 
-              bg-clip-text text-transparent tracking-wider"
-              >
+              <span className="font-black text-xl bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent tracking-wider">
                 Evalo
               </span>
               <span className="text-xs text-base-content/60 font-medium -mt-1">
@@ -40,10 +37,7 @@ function HomePage() {
 
           {/* AUTH BTN */}
           <SignInButton mode="modal">
-            <button
-              className="group px-6 py-3 bg-gradient-to-r from-primary to-secondary rounded-xl text-white font-semibold 
-            text-sm shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105 flex items-center gap-2 cursor-pointer"
-            >
+            <button className="group px-6 py-3 bg-gradient-to-r from-primary to-secondary rounded-xl text-white font-semibold text-sm shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105 flex items-center gap-2">
               <span>Get Started</span>
               <ArrowRightIcon className="size-4 group-hover:translate-x-0.5 transition-transform" />
             </button>
@@ -94,19 +88,13 @@ function HomePage() {
             {/* CTA Buttons */}
             <div className="flex flex-wrap gap-4">
               <SignInButton mode="modal">
-                <button
-                  className="btn btn-primary btn-lg shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105 
-                flex items-center gap-2"
-                >
+                <button className="btn btn-primary btn-lg">
                   Start Coding Now
-                  <ArrowRightIcon className="size-4 group-hover:translate-x-0.5 transition-transform" />
+                  <ArrowRightIcon className="size-5" />
                 </button>
               </SignInButton>
 
-              <button
-                className="btn btn-outline btn-lg shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105 
-              flex items-center gap-2"
-              >
+              <button className="btn btn-outline btn-lg">
                 <VideoIcon className="size-5" />
                 Watch Demo
               </button>
@@ -115,11 +103,11 @@ function HomePage() {
             {/* STATS */}
             <div className="stats stats-vertical lg:stats-horizontal bg-base-100 shadow-lg">
               <div className="stat">
-                <div className="stat-value text-primary">10K+</div>
+                <div className="stat-value text-primary">1+</div>
                 <div className="stat-title">Active Users</div>
               </div>
               <div className="stat">
-                <div className="stat-value text-secondary">50K+</div>
+                <div className="stat-value text-secondary">10+</div>
                 <div className="stat-title">Sessions</div>
               </div>
               <div className="stat">
@@ -133,7 +121,7 @@ function HomePage() {
           <img
             src="/hero.png"
             alt="CodeCollab Platform"
-            className="w-full h-130 rounded-3xl shadow-2xl border-4 border-base-100 hover:scale-105 transition-transform duration-500"
+            className="w-full h-auto rounded-3xl shadow-2xl border-4 border-base-100 hover:scale-105 transition-transform duration-500"
           />
         </div>
       </div>

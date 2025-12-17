@@ -22,8 +22,8 @@ function Navbar() {
           </div>
 
           <div className="flex flex-col">
-            <span className="font-black text-xl bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent font-mono tracking-wider">
-              Talent IQ
+            <span className="font-black text-xl bg-gradient-to-r from-primary via-secondary to-accent bg-clip-text text-transparent tracking-wider">
+              Evalo
             </span>
             <span className="text-xs text-base-content/60 font-medium -mt-1">
               Code Together
@@ -62,13 +62,10 @@ function Navbar() {
               
               `}
           >
-            <button
-              className="shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105 
-            flex items-center gap-2 cursor-pointer"
-            >
+            <div className="flex items-center gap-x-2.5">
               <LayoutDashboardIcon className="size-4" />
-              Dashbord
-            </button>
+              <span className="font-medium hidden sm:inline">Dashbord</span>
+            </div>
           </Link>
 
           <div className="ml-4 mt-2">

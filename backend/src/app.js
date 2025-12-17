@@ -24,7 +24,7 @@ app.use(clerkMiddleware()); // adds "auth" field to request objects
 // api routes
 app.use("/api/inngest", serve({ client: inngest, functions }));
 app.use("/api/chat", chatRoutes);
-app.use("/api/session", sessionRoutes);
+app.use("/api/sessions", sessionRoutes);
 
 // in this case the "__dirname" is the current directory...so the backend folder
 const __dirname = path.resolve();

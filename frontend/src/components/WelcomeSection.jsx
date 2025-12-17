@@ -23,12 +23,13 @@ function WelcomeSection({ onCreateSession }) {
           </div>
           <button
             onClick={onCreateSession}
-            className="group px-8 py-4 bg-gradient-to-r from-primary to-secondary rounded-2xl transition-all duration-200 hover:opacity-90
-            shadow-lg hover:shadow-xl transition-all duration-200 hover:scale-105 flex items-center gap-2 cursor-pointer"
+            className="group px-8 py-4 bg-gradient-to-r from-primary to-secondary rounded-2xl transition-all duration-200 hover:opacity-90"
           >
-            <ZapIcon className="w-6 h-6" />
-            Create Session
-            <ArrowRightIcon className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            <div className="flex items-center gap-3 text-white font-bold text-lg">
+              <ZapIcon className="w-6 h-6" />
+              <span>Create Session</span>
+              <ArrowRightIcon className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+            </div>
           </button>
         </div>
       </div>

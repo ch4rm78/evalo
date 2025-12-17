@@ -9,7 +9,7 @@ export const protectRoute = [
       if (!clerkId) return res.status(401).json({ message: "Unauthorized" });
 
       // check for user in the database
-      const user = await User.findById(clerkId);
+      const user = await User.findOne({ clerkId });
 
       if (!user) return res.status(404).json({ message: "User not found" });
 

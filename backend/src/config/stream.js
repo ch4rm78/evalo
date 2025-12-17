@@ -12,7 +12,11 @@ export const chatClient = StreamChat.getInstance(
   STREAM_API_SECRET
 );
 
-export const streamClient = new StreamClient(STREAM_API_KEY, STREAM_API_SECRET);
+export const streamClient = new StreamClient(
+  STREAM_API_KEY,
+  STREAM_API_SECRET,
+  { timeout: 10000 }
+);
 
 export const upsertStreamUser = async (userData) => {
   try {
